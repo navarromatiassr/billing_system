@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Hi from './Hi';
+import Menu from './Components/Menu/menu';
+import Carousel from './Components/Carousel/carousel';
+import addClientForm from "./Components/Forms/add-clientForm";
+import addProductForm from "./Components/Forms/add-productForm";
 
 function App() {
   return (
     <div className="App">
+      <Menu/>
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <div className="container">
+          </div>
+          <addClientForm />
+          <addProductForm />
       </header>
+        <body>
+
+        </body>
+      <footer className="App-footer">
+        <div className="d-flex justify-content-center">
+            <div className="p-2 bg-primary flex-fill">Facebook</div>
+            <div className="p-2 bg-info flex-fill">Gmail</div>
+            <div className="p-2 bg-primary flex-fill">Wspp</div>
+        </div>
+      </footer>
     </div>
   );
 }
-
 export default App;
