@@ -6,16 +6,16 @@ function Menu (props){
             <nav className="navbar navbar-expand-sm bg-primary navbar-dark">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" to="/">Main</a>
+                        <a className="nav-link" href="/">Main</a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link" to="/clients">Clients</a>
+                        <a className="nav-link" href="/clients">Clients</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" to="/products">Products</a>
+                        <a className="nav-link" href="/products">Products</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" to="/billings">Billings</a>
+                        <a className="nav-link" href="/billings">Billings</a>
                     </li>
                 </ul>
             </nav>

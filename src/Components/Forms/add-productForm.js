@@ -10,7 +10,8 @@ class addProductForm extends React.Component {
             category: '',
             price: '',
         }
-        render()
+    }
+    render()
         {
             const {name, category, price} = this.state
             const f = new Function();
@@ -18,12 +19,12 @@ class addProductForm extends React.Component {
                 <form onSubmit={f.handleSubmit}>
                     <label for="nya">Name</label>
                     <br/>
-                    <input type="text" name="nya" id="nya" readonly="true" value={name}
+                    <input type="text" name="nya" id="nya" value={name}
                            onChange={f.handleChange}/>
                     <br/><br/>
                     <label for="category">Category</label>
                     <br/>
-                    <input type="text" name="category" id="email" required value={category}
+                    <input type="text" name="category" id="email" value={category}
                            onChange={f.handleChange}/>
                     <br/><br/>
                     <label for="price">Price</label>
@@ -35,7 +36,6 @@ class addProductForm extends React.Component {
                 </form>
             );
         }
-    }
 }
 ReactDOM.render(<addProductForm/>, document.getElementById('root'));
 export default addProductForm;

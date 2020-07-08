@@ -1,0 +1,31 @@
+{
+  "clients": [
+    {
+      "name": "Matias",
+      "last_name": "Navarro",
+      "country": "San Rafael",
+      "state": "Argentina",
+      "dni": "12345678",
+      "address": "Lorem ipsum",
+      "email": "asdasd@gmail.com"
+    },
+    {
+      "name": "Matias",
+      "last_name": "Ahumada",
+      "country": "San Rafael",
+      "state": "Argentina",
+      "dni": "12345678",
+      "address": "Lorem ipsum",
+      "email": "lkjhñlkhj@gmail.com"
+    },
+    {
+      "name": "Facundo",
+      "last_name": "Luna",
+      "country": "San Rafael",
+      "state": "Argentina",
+      "dni": "98765431",
+      "address": "Lorem ipsum",
+      "email": "0987664@gmail.com"
+    }
+  ]
+}
