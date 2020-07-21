@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function Menu (props){
         return (
@@ -8,7 +8,7 @@ function Menu (props){
                     <li className="nav-item">
                         <a className="nav-link" href="/">Main</a>
                     </li>
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link" href="/clients">Clients</a>
                     </li>
                     <li className="nav-item">

@@ -27,5 +27,45 @@
       "address": "Lorem ipsum",
       "email": "0987664@gmail.com"
     }
+  ],
+
+  "products": [
+    {
+      "name": "Caballetes",
+      "category": "Articulos",
+      "price": "$400",
+      "code": "00001"
+    },
+    {
+      "name": "Cadenas",
+      "category": "Articulos",
+      "price": "$270",
+      "code": "00002"
+    },
+    {
+      "name": "Cajas de Aluminio",
+      "category": "Herramientas",
+      "price": "$1100",
+      "code": "00003"
+    },
+    {
+      "name": "Bisagras",
+      "category": "Cerrajería",
+      "price": "$300",
+      "code": "00004"
+    },
+    {
+      "name": "MDF 180x120 3mm",
+      "category": "Carpintería",
+      "price": "$820",
+      "code": "00005"
+    }
+  ],
+
+  "billings": [
+    {
+      "date":"2020/07/22",
+      "price": "$6100"
+    }
   ]
 }

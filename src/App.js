@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import Hi from './Hi';
 import Menu from './Components/Menu/menu';
-import Carousel from './Components/Carousel/carousel';
-import showClients from "./Utils/showClients";
+import Client from './Views/Clients/client';
+import Product from './Views/Products/product';
+import Welcome from "./Views/Welcome/welcome-main";
+import Billing from "./Views/Billings/billing";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 
 class App extends Component {
     constructor(props) {
@@ -12,19 +15,17 @@ class App extends Component {
         }
     }
     render(){
-        let showClient = new showClients();
         return (
             <div className="App">
                 <Menu/>
-
-
-            <body>
-                <div className="container">
-                    <showClient/>
-                </div>
-            </body>
-
-
+                <BrowserRouter>
+                    <Switch>
+                        <Route path='/' exact component={ Welcome } />
+                        <Route path='/clients' exact component={ Client } />
+                        <Route path='/products' exact component={ Product } />
+                        <Route path='/billings' exact component={ Billing } />
+                    </Switch>
+                </BrowserRouter>
             <footer className="App-footer">
                 <div className="d-flex justify-content-center">
                     <div className="p-2 bg-primary flex-fill">Facebook</div>

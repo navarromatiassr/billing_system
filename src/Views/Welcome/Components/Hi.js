@@ -4,7 +4,7 @@ class Hi extends Component {
     render() {
         return (
             <h1>🔥 Billing System 🔥</h1>
-    );
+        )
     }
 }
 
