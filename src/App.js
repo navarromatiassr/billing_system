@@ -5,6 +5,9 @@ import Client from './Views/Clients/client';
 import Product from './Views/Products/product';
 import Welcome from "./Views/Welcome/welcome-main";
 import Billing from "./Views/Billings/billing";
+import addClientForm from "./Views/Clients/Components/add-clientForm";
+import addProductForm from "./Views/Products/Components/add-productForm";
+
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
@@ -22,7 +25,9 @@ class App extends Component {
                     <Switch>
                         <Route path='/' exact component={ Welcome } />
                         <Route path='/clients' exact component={ Client } />
+                        <Route path='/clients/add-client' exact component={ addClientForm } />
                         <Route path='/products' exact component={ Product } />
+                        <Route path='/products/add-product' exact component={ addProductForm } />
                         <Route path='/billings' exact component={ Billing } />
                     </Switch>
                 </BrowserRouter>

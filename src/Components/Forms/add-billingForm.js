@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Function from "../../Utils/function";
-import addClientForm from "./add-clientForm";
+import addClientForm from "../../Views/Clients/Components/add-clientForm";
 import Function from "../../Utils/function";
 
 class addBillingForm extends React.Component {

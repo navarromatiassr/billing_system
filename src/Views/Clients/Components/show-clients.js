@@ -15,6 +15,13 @@ class ShowClients extends React.Component {
     render() {
         const client_list = this.state.clients;
         return (
+            <div>
+                <div className="filterClients">
+                    <form>
+                        <input type="text" placeholder="Client ID"/>
+                        <button onClick={this.handleSearchClient} className="btn btn-primary">Search</button>
+                    </form>
+                </div>
             <table className="table table-hover">
                 <thead>
                 <tr>
@@ -49,6 +56,8 @@ class ShowClients extends React.Component {
                 }
                 </tbody>
             </table>
+
+            </div>
 
         )
     }

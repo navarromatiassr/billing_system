@@ -1,15 +1,34 @@
 import React from 'react';
 import ShowClients from "./Components/show-clients";
+import addClientForm from "./Components/add-clientForm";
+import { Link } from 'react-router-dom';
 
 class Client extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            client: {
+                "name": '',
+                "last_name": '',
+                "country": '',
+                "state": '',
+                "dni": '',
+                "address": '',
+                "email": '',
+            },
+            routeAddClient: '/clients/add-client'
+        }
     }
+
     render(){
         return(
             <div className="container">
                 <ShowClients/>
-                <button type="button" className="btn btn-primary">Add client</button>
+                <div>
+                    <Link to={this.state.routeAddClient}>
+                        <button type="button" className="btn btn-primary">Add client</button>
+                    </Link>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,27 @@
+.addProductForm{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.addProductForm form input{
+    width: 100%;
+}
+
+.addProductForm button{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.filterProducts input{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+.filterProducts button{
+    margin: 10px 10px;
+}

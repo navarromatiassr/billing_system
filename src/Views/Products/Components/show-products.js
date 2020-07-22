@@ -11,6 +11,13 @@ class ShowProducts extends React.Component{
     render(){
         const product_list = this.state.products;
         return (
+            <div>
+            <div className="filterProducts">
+                <form>
+                    <input type="text" placeholder="Product ID"/>
+                    <button className="btn btn-primary">Search</button>
+                </form>
+            </div>
             <table className="table table-hover">
                 <thead>
                 <tr>
@@ -40,7 +47,7 @@ class ShowProducts extends React.Component{
                 }
                 </tbody>
             </table>
-
+            </div>
         )
     }
 }

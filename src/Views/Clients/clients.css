@@ -1,0 +1,26 @@
+.addClientForm{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.addClientForm form input{
+    width: 100%;
+}
+
+.addClientForm button{
+    width: 100%;
+    margin-top: 20px;
+}
+.filterClients input{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+.filterClients button{
+    margin: 10px 10px;
+}
