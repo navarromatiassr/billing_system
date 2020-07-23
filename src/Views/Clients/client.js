@@ -1,7 +1,10 @@
 import React from 'react';
 import ShowClients from "./Components/show-clients";
 import addClientForm from "./Components/add-clientForm";
+import ClientApi from '../../Service/client-api'
 import { Link } from 'react-router-dom';
+
+const clientApi = new ClientApi();
 
 class Client extends React.Component{
     constructor(props){

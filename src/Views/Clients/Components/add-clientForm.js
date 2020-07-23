@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Function from "../../../Utils/function";
+
 import '../clients.css'
+import ClientApi from "../../../Service/client-api";
+
+const clientApi = new ClientApi();
 
 class addClientForm extends React.Component {
     constructor(props) {
@@ -18,11 +21,43 @@ class addClientForm extends React.Component {
             }
         }
     }
+    handleChange = (e) => {
+        let client = this.state.client;
+        client[e.target.name] = e.target.value;
+        this.setState({client: client});
+    }
+
+    restartInput(){
+        const client= {
+            "name": '',
+            "last_name": '',
+            "country": '',
+            "state": '',
+            "dni": '',
+            "address": '',
+            "email": '',
+        };
+        this.setState({client})
+    }
+
+
+    handleSubmit = e => {
+        e.preventDefault();
+        clientApi.addClient(this.state.client)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch( e => {
+                console.log(e);
+            });
+        this.restartInput();
+    }
+
     render() {
         return (
             <div className="addClientForm">
                 <h1>NEW CLIENT</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} name="formClient">
                     <div>Name:
                         <input
                             type="text"
@@ -89,7 +124,6 @@ class addClientForm extends React.Component {
 
                     <button type="submit" className="btn btn-primary">Send</button>
                 </form>
-
             </div>
 
         )

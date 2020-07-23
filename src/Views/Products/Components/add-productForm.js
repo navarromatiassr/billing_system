@@ -18,6 +18,7 @@ class addProductForm extends React.Component {
         {
             return (
                 <div className="addProductForm">
+                    <h1>NEW PRODUCT</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>Name
                     <input type="text" name="nya" id="nya" value={this.state.product.name}

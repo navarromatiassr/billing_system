@@ -1,5 +1,6 @@
 import React from "react";
 import { products } from "../../../dates.json"
+import Function from "../../../Utils/function";
 
 class ShowProducts extends React.Component{
     constructor(props) {
@@ -15,7 +16,7 @@ class ShowProducts extends React.Component{
             <div className="filterProducts">
                 <form>
                     <input type="text" placeholder="Product ID"/>
-                    <button className="btn btn-primary">Search</button>
+                    <button className="btn btn-primary" onClick={ this.handleSearchClient }>Search</button>
                 </form>
             </div>
             <table className="table table-hover">

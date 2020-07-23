@@ -1,26 +1,60 @@
 import React from "react";
-import { clients } from '../../../dates.json'
+import ClientApi from "../../../Service/client-api";
+
+const clientApi = new ClientApi();
 
 class ShowClients extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            clients
+            clients: []
         }
     }
     componentDidMount() {
-        console.log(this.state.clients)
+        clientApi.getClients()
+            .then(res => {
+                const clients = res.data;
+                this.setState({ clients });
+            })
+            .catch(e => {
+                console.log(e)
+            });
+    }
+    updateListClient(){
+        clientApi.getClients()
+            .then( res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch( e => {
+                console.log(e)
+            });
+    }
+    handleChangeSearch(e){
+        this.setState({name: e.target.value})
+    }
+
+    handleSearchClient(e){
+        e.preventDefault()
+        clientApi.getClientByDNI(this.state.dni)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch( e => {
+                console.log(e)
+            });
     }
 
     render() {
-        const client_list = this.state.clients;
         return (
             <div>
                 <div className="filterClients">
                     <form>
-                        <input type="text" placeholder="Client ID"/>
+                        <input type="text" placeholder="Client DNI" value={this.state.dni} onChange={this.handleChangeSearch}/>
                         <button onClick={this.handleSearchClient} className="btn btn-primary">Search</button>
                     </form>
+                    <button className="btn btn-primary" onClick={this.updateListClient}>Update list</button>
                 </div>
             <table className="table table-hover">
                 <thead>
@@ -37,7 +71,7 @@ class ShowClients extends React.Component {
                 <tbody>
 
                 {
-                    client_list.map((client, i) => (
+                    this.state.clients.map((client, i) => (
                         <tr>
                             <td>  {client.name}</td>
                             <td>  {client.last_name}</td>
@@ -56,7 +90,6 @@ class ShowClients extends React.Component {
                 }
                 </tbody>
             </table>
-
             </div>
 
         )
