@@ -15,7 +15,7 @@ class Product extends React.Component{
         <div className="container">
             <ShowProducts/>
             <Link to={this.state.routeAddProduct}>
-            <button type="button" className="btn btn-primary">Add product</button>
+            <button type="button" className="btn btn-outline-primary">Add product</button>
             </Link>
         </div>
         )

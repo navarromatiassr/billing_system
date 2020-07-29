@@ -7,43 +7,60 @@ class ShowClients extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            clients: []
+            clients: [],
+            dni: '',
+            name:''
         }
+        this.handleChangeSearch = this.handleChangeSearch.bind(this);
+        this.handleSearchClient = this.handleSearchClient.bind(this);
+        this.handleDeleteClient = this.handleDeleteClient.bind(this);
+        this.handleChangeSearch = this.handleChangeSearch.bind(this);
+        this.handleChangeSearchName = this.handleChangeSearchName.bind(this);
+
     }
     componentDidMount() {
         clientApi.getClients()
             .then(res => {
-                const clients = res.data;
+                console.log(res)
+                const clients = res;
                 this.setState({ clients });
             })
             .catch(e => {
                 console.log(e)
             });
     }
-    updateListClient(){
-        clientApi.getClients()
-            .then( res => {
-                console.log(res);
-                console.log(res.data);
-            })
-            .catch( e => {
-                console.log(e)
-            });
-    }
+
     handleChangeSearch(e){
+        this.setState({dni: e.target.value})
+    }
+
+    handleChangeSearchName(e){
         this.setState({name: e.target.value})
     }
 
+
     handleSearchClient(e){
         e.preventDefault()
-        clientApi.getClientByDNI(this.state.dni)
+        clientApi.getClientByName(this.state.name)
             .then(res => {
                 console.log(res);
-                console.log(res.data);
+                this.setState({ clients: res });
             })
             .catch( e => {
                 console.log(e)
             });
+    }
+
+    handleDeleteClient(e){
+        e.preventDefault()
+        clientApi.deleteClient(this.state.dni)
+            .then(res => {
+                console.log(res);
+                window.location.reload()
+            })
+            .catch(e => {
+              console.log(e);
+            })
     }
 
     render() {
@@ -51,10 +68,17 @@ class ShowClients extends React.Component {
             <div>
                 <div className="filterClients">
                     <form>
-                        <input type="text" placeholder="Client DNI" value={this.state.dni} onChange={this.handleChangeSearch}/>
-                        <button onClick={this.handleSearchClient} className="btn btn-primary">Search</button>
+                        <input type="text" placeholder="Client name" value={this.state.name} onChange={this.handleChangeSearchName}/>
+                        <button onClick={this.handleSearchClient} className="btn btn-primary">
+                            <span className="material-icons">person_search</span>Search</button>
                     </form>
-                    <button className="btn btn-primary" onClick={this.updateListClient}>Update list</button>
+
+                    <form>
+                        <input type="text" placeholder="Client DNI" value={this.state.clients.dni} onChange={this.handleChangeSearch}/>
+                        <button className="btn btn-danger" onClick={this.handleDeleteClient}>
+                            <span className="material-icons">restore_from_trash</span>Delete</button>
+                    </form>
+
                 </div>
             <table className="table table-hover">
                 <thead>
@@ -69,7 +93,6 @@ class ShowClients extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-
                 {
                     this.state.clients.map((client, i) => (
                         <tr>
@@ -80,12 +103,7 @@ class ShowClients extends React.Component {
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>
                             <td>  {client.email}</td>
-                            <td>
-                                <button type="button" className="btn btn-primary">Edit</button>
-                                <button type="button" className="btn btn-primary">Delete</button>
-                            </td>
                         </tr>
-
                     ))
                 }
                 </tbody>

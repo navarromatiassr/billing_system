@@ -1,10 +1,6 @@
 import React from 'react';
 import ShowClients from "./Components/show-clients";
-import addClientForm from "./Components/add-clientForm";
-import ClientApi from '../../Service/client-api'
 import { Link } from 'react-router-dom';
-
-const clientApi = new ClientApi();
 
 class Client extends React.Component{
     constructor(props){
@@ -29,7 +25,8 @@ class Client extends React.Component{
                 <ShowClients/>
                 <div>
                     <Link to={this.state.routeAddClient}>
-                        <button type="button" className="btn btn-primary">Add client</button>
+                        <button type="button" className="btn btn-outline-primary">
+                            Add client</button>
                     </Link>
                 </div>
             </div>

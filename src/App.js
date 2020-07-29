@@ -7,8 +7,8 @@ import Welcome from "./Views/Welcome/welcome-main";
 import Billing from "./Views/Billings/billing";
 import addClientForm from "./Views/Clients/Components/add-clientForm";
 import addProductForm from "./Views/Products/Components/add-productForm";
-
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AddBillingForm from "./Views/Billings/Components/add-billingForm";
 
 
 class App extends Component {
@@ -29,6 +29,7 @@ class App extends Component {
                         <Route path='/products' exact component={ Product } />
                         <Route path='/products/add-product' exact component={ addProductForm } />
                         <Route path='/billings' exact component={ Billing } />
+                        <Route path='/billings/add-billing' exact component={ AddBillingForm } />
                     </Switch>
                 </BrowserRouter>
             <footer className="App-footer">
