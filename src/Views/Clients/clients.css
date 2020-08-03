@@ -24,3 +24,7 @@
 .filterClients button{
     margin: 10px 10px;
 }
+
+.selectCondition {
+    padding: 10px 10px 10px 10px;
+}

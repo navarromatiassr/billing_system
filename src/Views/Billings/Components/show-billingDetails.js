@@ -33,10 +33,11 @@ class ShowBillingDetails extends React.Component{
 
     }
 
+
     render() {
         return (
             <div>
-            <div className="container">
+                <div className="container">
                 <div className="card">
                     <div className="card-header">
                                 <h3>ID: N°{this.state.billing.id} - Billing</h3>

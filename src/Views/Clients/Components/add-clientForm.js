@@ -18,6 +18,7 @@ class addClientForm extends React.Component {
                 "dni": '',
                 "address": '',
                 "email": '',
+                "condition":''
             }
         }
     }
@@ -36,6 +37,7 @@ class addClientForm extends React.Component {
             "dni": '',
             "address": '',
             "email": '',
+            "condition": ''
         };
         this.setState({client})
     }
@@ -96,7 +98,15 @@ class addClientForm extends React.Component {
                         />
                     </div>
 
-                    <div>DNI:
+                    <div className="selectCondition">Condition:
+                        <select>
+                            <option value="value1">Monotributista</option>
+                            <option value="value2">Responsable Inscripto</option>
+                            <option value="value3">Consumidor Final</option>
+                        </select>
+                    </div>
+
+                    <div>DNI/CUIT:
                         <input
                             type="text"
                             name="dni"
@@ -113,7 +123,6 @@ class addClientForm extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
-
                     <div>Email:
                         <input
                             type="email"
@@ -122,7 +131,6 @@ class addClientForm extends React.Component {
                             onChange={this.handleChange}
                         />
                     </div>
-
                     <button type="submit" className="btn btn-primary">Send</button>
                 </form>
             </div>

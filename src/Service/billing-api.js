@@ -12,6 +12,7 @@ class BillingApi {
         const data = query.data;
         return data;
     }
+
     async getBillingByIdClient(id){
         const query = await axios.get(`${BASE}/billings-api/client${id}`);
         const data = query.data;

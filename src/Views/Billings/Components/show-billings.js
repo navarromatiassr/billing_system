@@ -8,11 +8,14 @@ class ShowBillings extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            id:'',
             items:[],
             clients:[],
             billings:[],
             routeBillingDetail : '/billings/billing-details/'
         }
+        this.handleChangeSearchId = this.handleChangeSearchId.bind(this);
+        this.handleSearchClient = this.handleSearchClient.bind(this);
     }
     componentDidMount() {
         billingApi.getBillings()
@@ -26,9 +29,31 @@ class ShowBillings extends React.Component{
             })
     }
 
+    handleChangeSearchId(e){
+        this.setState({id: e.target.value})
+    }
+
+    handleSearchClient(e){
+        e.preventDefault()
+        billingApi.getBillingByIdClient(this.state.id)
+            .then(res => {
+                console.log(res);
+                this.setState({ billings: res });
+            })
+            .catch( e => {
+                console.log(e)
+            });
+    }
+
     render(){
         return(
-            <div>{
+            <div>
+                <form>
+                    <input type="text" placeholder="Client id" value={this.state.id} onChange={this.handleChangeSearchId}/>
+                    <button onClick={this.handleSearchClient} className="btn btn-primary">
+                        <span className="material-icons">person_search</span>Search</button>
+                </form>
+                {
                 this.state.billings.map((billing, i) => (
             <div className="container">
             <div className="card">
