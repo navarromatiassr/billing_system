@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ProductApi from "../../../Service/product-api";
 import '../products.css'
+import NotificationProduct from "../../../Components/Notification/notificationProduct";
 
 const productApi = new ProductApi();
 
@@ -9,6 +10,7 @@ class addProductForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            notification:[],
             product: {
             "name": '',
             "category": '',
@@ -27,8 +29,8 @@ class addProductForm extends React.Component {
                 console.log(e);
             });
         this.restartInput();
-
     }
+
     restartInput(){
         const product= {
             "name": '',
@@ -37,6 +39,7 @@ class addProductForm extends React.Component {
         }
         this.setState({product})
     }
+
     handleChange = (e) => {
         let product = this.state.product;
         product[e.target.name] = e.target.value;

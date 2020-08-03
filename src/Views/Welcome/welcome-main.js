@@ -1,6 +1,7 @@
 import React from "react";
 import Hi from './Components/Hi';
 import Carousel from './Components/Carousel/carousel';
+import './welcome.css'
 
 class Welcome extends React.Component{
     constructor(props) {
@@ -8,8 +9,7 @@ class Welcome extends React.Component{
     }
     render(){
         return(
-            <div className="container">
-                <Hi/>
+            <div className="welcome">
                 <Carousel/>
             </div>
         )

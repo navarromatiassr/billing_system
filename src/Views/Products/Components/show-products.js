@@ -3,6 +3,7 @@ import ProductApi from '../../../Service/product-api'
 
 const productApi = new ProductApi();
 
+
 class ShowProducts extends React.Component{
     constructor(props) {
         super(props);
@@ -80,7 +81,7 @@ class ShowProducts extends React.Component{
             <table className="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">CODE-ID</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
@@ -95,7 +96,6 @@ class ShowProducts extends React.Component{
                             <td>  {product.name}</td>
                             <td>  {product.category}</td>
                             <td>  ${product.price}</td>
-                            <td>  {product.code}</td>
                         </tr>
                     ))
                 }

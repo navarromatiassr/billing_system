@@ -51,6 +51,7 @@ class addClientForm extends React.Component {
                 console.log(e);
             });
         this.restartInput();
+        window.location = 'http://localhost:3000/clients/'
     }
 
     render() {

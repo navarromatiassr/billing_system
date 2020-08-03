@@ -28,6 +28,7 @@ class BillingApi {
         const data = query.data;
         return data;
     }
+
     async deleteBilling(id){
         const query = await axios.delete(`${BASE}billings-api/${id}`);
         const data = query.data;
