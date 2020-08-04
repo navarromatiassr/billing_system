@@ -1,5 +1,6 @@
 import React from "react";
 import ClientApi from "../../../Service/client-api";
+import {Link} from "react-router-dom";
 
 const clientApi = new ClientApi();
 
@@ -9,9 +10,9 @@ class ShowClients extends React.Component {
         this.state = {
             clients: [],
             dni: '',
-            name:''
+            name:'',
+            routeEdit : '/clients/edit-client'
         }
-        this.handleChangeSearch = this.handleChangeSearch.bind(this);
         this.handleSearchClient = this.handleSearchClient.bind(this);
         this.handleDeleteClient = this.handleDeleteClient.bind(this);
         this.handleChangeSearch = this.handleChangeSearch.bind(this);
@@ -105,6 +106,8 @@ class ShowClients extends React.Component {
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>
                             <td>  {client.email}</td>
+                            <td> <Link to={this.state.routeEdit+'/'+client.id}><button className="btn btn-primary">
+                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></td>
                         </tr>
                     ))
                 }

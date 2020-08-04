@@ -10,6 +10,7 @@ import addProductForm from "./Views/Products/Components/add-productForm";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AddBillingForm from "./Views/Billings/Components/add-billingForm";
 import ShowBillingDetails from "./Views/Billings/Components/show-billingDetails";
+import EditClientForm from "./Views/Clients/Components/edit-clientForm";
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
                         <Route path='/' exact component={ Welcome } />
                         <Route path='/clients' exact component={ Client } />
                         <Route path='/clients/add-client' exact component={ addClientForm } />
+                        <Route path='/clients/edit-client/:id' exact component={ EditClientForm } />
                         <Route path='/products' exact component={ Product } />
                         <Route path='/products/add-product' exact component={ addProductForm } />
                         <Route path='/billings' exact component={ Billing } />

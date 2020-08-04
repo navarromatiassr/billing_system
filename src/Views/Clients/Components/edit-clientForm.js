@@ -1,15 +1,12 @@
-import React, { Component } from "react";
-import ReactDOM from 'react-dom';
-
-import '../clients.css'
+import React from 'react';
 import ClientApi from "../../../Service/client-api";
 
 const clientApi = new ClientApi();
 
-class addClientForm extends React.Component {
+class EditClientForm extends React.Component{
     constructor(props) {
-        super(props)
-        this.state = {
+        super(props);
+        this.state={
             client: {
                 "name": '',
                 "lastName": '',
@@ -21,45 +18,37 @@ class addClientForm extends React.Component {
                 "ivaCondition":''
             }
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-
     handleChange = (e) => {
         let client = this.state.client;
         client[e.target.name] = e.target.value;
         this.setState({client: client});
     }
 
-    restartInput(){
-        const client= {
-            "name": '',
-            "last_name": '',
-            "country": '',
-            "state": '',
-            "dni": '',
-            "address": '',
-            "email": '',
-            "condition": ''
-        };
-        this.setState({client})
-    }
-
-
-    handleSubmit = e => {
-        e.preventDefault();
-        clientApi.addClient(this.state.client)
-            .then(res => {
-                console.log(res.data);
+    componentDidMount(){
+        console.log(this.props.match.params.id)
+        clientApi.getClientById(this.props.match.params.id)
+            .then( res => {
                 this.setState({client: res});
             })
             .catch( e => {
                 console.log(e);
-            });
-        this.restartInput();
-        window.location = 'http://localhost:3000/clients/'
+            })
     }
 
-    render() {
+    handleSubmit = e =>{
+        e.preventDefault();
+        clientApi.editClient(this.state.client)
+            .then( () => {
+                console.log("Update success")
+            })
+            .catch( e => {
+                console.log(e.response);
+            })
+    }
+    render(){
         return (
             <div className="addClientForm">
                 <h1>NEW CLIENT</h1>
@@ -102,7 +91,7 @@ class addClientForm extends React.Component {
                     </div>
 
                     <div className="selectCondition">IVA Condition:
-                        <select value={this.state.client.ivaCondition} name="ivaCondition">
+                        <select>
                             <option value="MONOTRIBUTISTA">Monotributista</option>
                             <option value="RESPONSABLE_INSCRIPTO">Responsable Inscripto</option>
                             <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
@@ -140,7 +129,4 @@ class addClientForm extends React.Component {
 
         )
     }
-}
-ReactDOM.render(<addClientForm />, document.getElementById('root'));
-export default addClientForm;
-
+}export default EditClientForm;
