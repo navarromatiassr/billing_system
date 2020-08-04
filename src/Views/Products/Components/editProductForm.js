@@ -37,6 +37,7 @@ class editProductForm extends React.Component {
             .catch( e => {
                 console.log(e);
             });
+        window.location = 'http://localhost:3000/products/'
     }
 
     handleChange = (e) => {
