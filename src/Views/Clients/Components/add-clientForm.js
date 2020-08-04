@@ -33,7 +33,7 @@ class addClientForm extends React.Component {
     restartInput(){
         const client= {
             "name": '',
-            "last_name": '',
+            "lastName": '',
             "country": '',
             "state": '',
             "dni": '',
@@ -50,7 +50,6 @@ class addClientForm extends React.Component {
         clientApi.addClient(this.state.client)
             .then(res => {
                 console.log(res.data);
-                this.setState({client: res});
             })
             .catch( e => {
                 console.log(e);
@@ -76,7 +75,7 @@ class addClientForm extends React.Component {
                     <div>Last Name:
                         <input
                             type="text"
-                            name="last_name"
+                            name="lastName"
                             value={this.state.client.lastName}
                             onChange={this.handleChange}
                             className="input"
