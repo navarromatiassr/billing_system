@@ -52,9 +52,9 @@ class ShowClients extends React.Component {
             });
     }
 
-    handleDeleteClient(e){
+    handleDeleteClient(id, e){
         e.preventDefault()
-        clientApi.deleteClient(this.state.dni)
+        clientApi.deleteClient(id)
             .then(res => {
                 console.log(res);
                 window.location.reload()
@@ -72,12 +72,6 @@ class ShowClients extends React.Component {
                         <input type="text" placeholder="Client DNI" value={this.state.dni} onChange={this.handleChangeSearchDni}/>
                         <button onClick={this.handleSearchClient} className="btn btn-primary">
                             <span className="material-icons">person_search</span>Search</button>
-                    </form>
-
-                    <form>
-                        <input type="text" placeholder="Client DNI" value={this.state.clients.dni} onChange={this.handleChangeSearchClientByDi}/>
-                        <button className="btn btn-danger" onClick={this.handleDeleteClient}>
-                            <span className="material-icons">restore_from_trash</span>Delete</button>
                     </form>
 
                 </div>
@@ -108,8 +102,12 @@ class ShowClients extends React.Component {
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>
                             <td>  {client.email}</td>
-                            <div> <Link to={this.state.routeEdit+'/'+client.id}><button className="btn btn-primary">
-                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></div>
+                            <td> <Link to={this.state.routeEdit+'/'+client.id}><button className="btn btn-primary">
+                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></td>
+                            <td>
+                                <button className="btn btn-danger" onClick={ e =>(this.handleDeleteClient(client.id, e))}>
+                                <span className="material-icons">restore_from_trash</span>Delete</button>
+                            </td>
                         </tr>
                     ))
                 }

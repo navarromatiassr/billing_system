@@ -50,8 +50,8 @@ class ClientApi{
        return data;
     }
 
-    async deleteClient(dni){
-       const query = await axios.delete(`${BASE}clients-api/${dni}`, {
+    async deleteClient(id){
+       const query = await axios.delete(`${BASE}clients-api/${id}`, {
            headers: {
                "Content-Type": "application/json"
            }
