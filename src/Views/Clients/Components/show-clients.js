@@ -9,12 +9,13 @@ class ShowClients extends React.Component {
         super(props);
         this.state = {
             clients: [],
+            dni_client:'',
             dni: '',
             routeEdit : '/clients/edit-client'
         }
         this.handleSearchClient = this.handleSearchClient.bind(this);
         this.handleDeleteClient = this.handleDeleteClient.bind(this);
-        this.handleChangeSearch = this.handleChangeSearch.bind(this);
+        this.handleChangeSearchClientByDni = this.handleChangeSearchClientByDni.bind(this);
         this.handleChangeSearchDni = this.handleChangeSearchDni.bind(this);
 
     }
@@ -30,8 +31,8 @@ class ShowClients extends React.Component {
             });
     }
 
-    handleChangeSearch(e){
-        this.setState({dni: e.target.value})
+    handleChangeSearchClientByDni(e){
+        this.setState({dni_client: e.target.value})
     }
 
     handleChangeSearchDni(e){
@@ -74,7 +75,7 @@ class ShowClients extends React.Component {
                     </form>
 
                     <form>
-                        <input type="text" placeholder="Client DNI" value={this.state.clients.dni} onChange={this.handleChangeSearch}/>
+                        <input type="text" placeholder="Client DNI" value={this.state.clients.dni} onChange={this.handleChangeSearchClientByDi}/>
                         <button className="btn btn-danger" onClick={this.handleDeleteClient}>
                             <span className="material-icons">restore_from_trash</span>Delete</button>
                     </form>
@@ -107,6 +108,8 @@ class ShowClients extends React.Component {
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>
                             <td>  {client.email}</td>
+                            <div> <Link to={this.state.routeEdit+'/'+client.id}><button className="btn btn-primary">
+                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></div>
                         </tr>
                     ))
                 }

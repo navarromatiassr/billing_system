@@ -88,7 +88,7 @@ class addClientForm extends React.Component {
                     </div>
 
                     <div className="selectCondition">IVA Condition:
-                        <select value={this.state.client.ivaCondition} name="ivaCondition">
+                        <select value={this.state.client.ivaCondition} name="ivaCondition" onChange={this.handleChange}>
                             <option value="MONOTRIBUTISTA">Monotributista</option>
                             <option value="RESPONSABLE_INSCRIPTO">Responsable Inscripto</option>
                             <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
