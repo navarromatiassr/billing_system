@@ -1,6 +1,6 @@
 import React from 'react';
 import ClientApi from "../../../Service/client-api";
-import { Link } from 'react-router-dom';
+
 
 const clientApi = new ClientApi();
 
@@ -19,7 +19,6 @@ class EditClientForm extends React.Component{
                 "email": '',
                 "ivaCondition":''
             },
-            routeBackToClients: '/clients/',
             id : this.props.match.params.id
         }
         this.handleChange = this.handleChange.bind(this);
@@ -51,6 +50,7 @@ class EditClientForm extends React.Component{
             .catch( e => {
                 console.log(e);
             })
+        window.location = 'http://localhost:3000/clients/'
     }
     render(){
         return (
@@ -127,9 +127,7 @@ class EditClientForm extends React.Component{
                             onChange={this.handleChange}
                         />
                     </div>
-                    <Link to={this.routeBackToClients}>
                         <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Send</button>
-                    </Link>
                 </form>
             </div>
 
