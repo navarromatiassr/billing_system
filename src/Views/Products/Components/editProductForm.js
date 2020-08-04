@@ -11,7 +11,7 @@ class editProductForm extends React.Component {
         this.state = {
             product: {
                 "name": '',
-                "category": '',
+                "productCategory": '',
                 "price": '',
             },
         }
@@ -56,9 +56,14 @@ class editProductForm extends React.Component {
                                onChange={this.handleChange}/>
                     </div>
 
-                    <div>Category
-                        <input type="text" name="category" value={this.state.product.category}
-                               onChange={this.handleChange}/>
+                    <div className="selectCondition">Category:
+                        <select value={this.state.product.productCategory} name="productCategory" onChange={this.handleChange}>
+                            <option value="HOGAR"> Hogar</option>
+                            <option value="PINTURERIA"> Pintureria</option>
+                            <option value="CONSTRUCCION"> Construccion</option>
+                            <option value="CARPINTERIA"> Carpinteria</option>
+                            <option value="ELECTRICIDAD"> Electricidad</option>
+                        </select>
                     </div>
 
                     <div>Price

@@ -50,7 +50,7 @@ class addProductForm extends React.Component {
                     </div>
 
                     <div className="selectCondition">Category:
-                        <select value={this.state.product.productCategory} name="category" onChange={this.handleChange}>
+                        <select value={this.state.product.productCategory} name="productCategory" onChange={this.handleChange}>
                             <option value="HOGAR"> Hogar</option>
                             <option value="PINTURERIA"> Pintureria</option>
                             <option value="CONSTRUCCION"> Construccion</option>

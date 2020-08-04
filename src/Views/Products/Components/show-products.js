@@ -91,7 +91,7 @@ class ShowProducts extends React.Component{
                         <tr>
                             <td>  {product.id}</td>
                             <td>  {product.name}</td>
-                            <td>  {product.category}</td>
+                            <td>  {product.productCategory}</td>
                             <td>  ${product.price}</td>
                             <td> <Link to={this.state.routeEdit+'/'+product.id}><button className="btn btn-primary">
                                 <span className="material-icons">restore_from_trash</span>Edit</button></Link></td>
