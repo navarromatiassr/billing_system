@@ -18,9 +18,21 @@ class ProductApi{
     async addProduct(product){
         const productJson = JSON.stringify(product)
         const query = await axios.post(`${BASE}products-api`, productJson,{
-        headers: {
-            "Content-Type": "application/json"
-        }
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        console.log("Product success!")
+        const data = query.data
+        return data;
+    }
+
+    async editProduct(product){
+        const productJson = JSON.stringify(product)
+        const query = await axios.post(`${BASE}products-api`, productJson,{
+            headers: {
+                "Content-Type": "application/json"
+            }
         });
         console.log("Product success!")
         const data = query.data

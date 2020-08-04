@@ -15,6 +15,12 @@ class ClientApi{
        return data;
     }
 
+    async getClientByDNI(dni){
+        const query = await axios.get(`${BASE}clients-api?dni=${dni}`)
+        const data = query.data
+        return data;
+    }
+
     async getClientById(id){
         const query = await axios.get(`${BASE}clients-api/${id}`)
         const data = query.data
@@ -24,7 +30,7 @@ class ClientApi{
     async editClient(client){
         console.log(client)
         const clientJSON = JSON.stringify(client)
-        const query = await axios.patch(`${BASE}clients-api`, clientJSON, {
+        const query = await axios.put(`${BASE}clients-api`, clientJSON, {
             headers:{
                 "Content-Type" : "application/json"
             }

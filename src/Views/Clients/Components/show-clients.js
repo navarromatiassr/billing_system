@@ -10,13 +10,12 @@ class ShowClients extends React.Component {
         this.state = {
             clients: [],
             dni: '',
-            name:'',
             routeEdit : '/clients/edit-client'
         }
         this.handleSearchClient = this.handleSearchClient.bind(this);
         this.handleDeleteClient = this.handleDeleteClient.bind(this);
         this.handleChangeSearch = this.handleChangeSearch.bind(this);
-        this.handleChangeSearchName = this.handleChangeSearchName.bind(this);
+        this.handleChangeSearchDni = this.handleChangeSearchDni.bind(this);
 
     }
     componentDidMount() {
@@ -35,14 +34,14 @@ class ShowClients extends React.Component {
         this.setState({dni: e.target.value})
     }
 
-    handleChangeSearchName(e){
-        this.setState({name: e.target.value})
+    handleChangeSearchDni(e){
+        this.setState({dni: e.target.value})
     }
 
 
     handleSearchClient(e){
         e.preventDefault()
-        clientApi.getClientByName(this.state.name)
+        clientApi.getClientByDNI(this.state.dni)
             .then(res => {
                 console.log(res);
                 this.setState({ clients: res });
@@ -69,7 +68,7 @@ class ShowClients extends React.Component {
             <div>
                 <div className="filterClients">
                     <form>
-                        <input type="text" placeholder="Client name" value={this.state.name} onChange={this.handleChangeSearchName}/>
+                        <input type="text" placeholder="Client DNI" value={this.state.dni} onChange={this.handleChangeSearchDni}/>
                         <button onClick={this.handleSearchClient} className="btn btn-primary">
                             <span className="material-icons">person_search</span>Search</button>
                     </form>
@@ -84,6 +83,7 @@ class ShowClients extends React.Component {
             <table className="table table-hover">
                 <thead>
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Last name</th>
                     <th scope="col">Country</th>
@@ -98,6 +98,7 @@ class ShowClients extends React.Component {
                 {
                     this.state.clients.map((client, i) => (
                         <tr>
+                            <td>  {client.id}</td>
                             <td>  {client.name}</td>
                             <td>  {client.lastName}</td>
                             <td>  {client.country}</td>

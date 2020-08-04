@@ -110,7 +110,7 @@ class addClientForm extends React.Component {
 
                     <div>DNI/CUIT:
                         <input
-                            type="text"
+                            type="number"
                             name="dni"
                             value={this.state.client.dni}
                             onChange={this.handleChange}
