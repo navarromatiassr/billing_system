@@ -33,7 +33,6 @@ class ClientApi{
         const query = await axios.put(`${BASE}clients-api`, clientJSON, {
             headers:{
                 "Content-Type" : "application/json",
-                "Authorization" : "authorizationToken",
             }
         })
         const data = query.data
@@ -55,7 +54,6 @@ class ClientApi{
        const query = await axios.delete(`${BASE}clients-api/${id}`, {
            headers: {
                "Content-Type": "application/json",
-               "Authorization" : "authorizationToken",
            }
        });
        console.log("Delete success!")
