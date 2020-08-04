@@ -107,8 +107,6 @@ class ShowClients extends React.Component {
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>
                             <td>  {client.email}</td>
-                            <div> <Link to={this.state.routeEdit+'/'+client.id}><button className="btn btn-primary">
-                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></div>
                         </tr>
                     ))
                 }
