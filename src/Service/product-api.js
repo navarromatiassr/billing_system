@@ -15,6 +15,12 @@ class ProductApi{
         return data;
     }
 
+    async getProductById(id){
+        const query = await axios.get(`${BASE}products-api/${id}`)
+        const data = query.data
+        return data;
+    }
+
     async addProduct(product){
         const productJson = JSON.stringify(product)
         const query = await axios.post(`${BASE}products-api`, productJson,{
@@ -29,7 +35,7 @@ class ProductApi{
 
     async editProduct(product){
         const productJson = JSON.stringify(product)
-        const query = await axios.post(`${BASE}products-api`, productJson,{
+        const query = await axios.put(`${BASE}products-api`, productJson,{
             headers: {
                 "Content-Type": "application/json"
             }

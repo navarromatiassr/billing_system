@@ -1,5 +1,6 @@
 import React from "react";
 import ProductApi from '../../../Service/product-api'
+import {Link} from "react-router-dom";
 
 const productApi = new ProductApi();
 
@@ -10,6 +11,7 @@ class ShowProducts extends React.Component{
         this.state = {
            products: [],
            name: '',
+           routeEdit : '/products/edit-product',
         }
         this.handleChangeSearch = this.handleChangeSearch.bind(this);
         this.handleChangeSearchName = this.handleChangeSearchName.bind(this);
@@ -96,6 +98,8 @@ class ShowProducts extends React.Component{
                             <td>  {product.name}</td>
                             <td>  {product.category}</td>
                             <td>  ${product.price}</td>
+                            <td> <Link to={this.state.routeEdit+'/'+product.id}><button className="btn btn-primary">
+                                <span className="material-icons">restore_from_trash</span>Edit</button></Link></td>
                         </tr>
                     ))
                 }

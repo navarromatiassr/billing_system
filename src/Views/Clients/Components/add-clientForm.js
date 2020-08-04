@@ -11,6 +11,7 @@ class addClientForm extends React.Component {
         super(props)
         this.state = {
             client: {
+                "id":'',
                 "name": '',
                 "lastName": '',
                 "country": '',
@@ -21,6 +22,8 @@ class addClientForm extends React.Component {
                 "ivaCondition":''
             }
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
 
@@ -29,21 +32,6 @@ class addClientForm extends React.Component {
         client[e.target.name] = e.target.value;
         this.setState({client: client});
     }
-
-    restartInput(){
-        const client= {
-            "name": '',
-            "lastName": '',
-            "country": '',
-            "state": '',
-            "dni": '',
-            "address": '',
-            "email": '',
-            "condition": ''
-        };
-        this.setState({client})
-    }
-
 
     handleSubmit = e => {
         e.preventDefault();
@@ -54,7 +42,6 @@ class addClientForm extends React.Component {
             .catch( e => {
                 console.log(e);
             });
-        this.restartInput();
         window.location = 'http://localhost:3000/clients/'
     }
 

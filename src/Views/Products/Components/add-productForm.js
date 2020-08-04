@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ProductApi from "../../../Service/product-api";
 import '../products.css'
-import NotificationProduct from "../../../Components/Notification/notificationProduct";
 
 const productApi = new ProductApi();
 
@@ -17,6 +16,7 @@ class addProductForm extends React.Component {
             "price": '',
             },
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit = e => {

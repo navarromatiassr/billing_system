@@ -1,7 +1,5 @@
 import React from 'react';
 import ClientApi from "../../../Service/client-api";
-import ReactDOM from "react-dom";
-import addProductForm from "../../Products/Components/add-productForm";
 
 const clientApi = new ClientApi();
 
