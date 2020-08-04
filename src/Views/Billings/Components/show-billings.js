@@ -1,6 +1,7 @@
 import React from "react";
 import BillingApi from "../../../Service/billing-api";
 import { Link } from "react-router-dom"
+import '../billing.css'
 
 const billingApi = new BillingApi();
 
@@ -33,9 +34,9 @@ class ShowBillings extends React.Component{
         this.setState({id: e.target.value})
     }
 
-    handleSearchClient(e){
+    handleSearchClient(id, e){
         e.preventDefault()
-        billingApi.getBillingByIdClient(this.state.id)
+        billingApi.getBillingByIdClient(id)
             .then(res => {
                 console.log(res);
                 this.setState({ billings: res });
@@ -48,11 +49,13 @@ class ShowBillings extends React.Component{
     render(){
         return(
             <div>
+                <div className="filterBillings">
                 <form>
-                    <input type="text" placeholder="Client id" value={this.state.id} onChange={this.handleChangeSearchId}/>
-                    <button onClick={this.handleSearchClient} className="btn btn-primary">
+                    <input type="text" placeholder="Client ID" value={this.state.id} onChange={this.handleChangeSearchId}/>
+                    <button onClick={ e => this.handleSearchClient(this.state.id, e)} className="btn btn-primary">
                         <span className="material-icons">person_search</span>Search</button>
                 </form>
+                </div>
                 {
                 this.state.billings.map((billing, i) => (
             <div className="container">

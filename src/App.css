@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 
 .App{
   display: flex;
@@ -6,6 +8,10 @@
   justify-content: space-between;
   min-height: 100vh;
   text-align: center;
+}
+
+.App-footer a{
+  font-size: 15px;
 }
 
 

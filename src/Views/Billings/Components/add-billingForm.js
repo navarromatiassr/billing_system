@@ -3,6 +3,7 @@ import ProductApi from "../../../Service/product-api";
 import ClientApi from "../../../Service/client-api";
 import BillingApi from "../../../Service/billing-api";
 import ReactDOM from "react-dom";
+import '../billing.css'
 
 
 const productApi = new ProductApi();
@@ -158,8 +159,9 @@ class AddBillingForm extends React.Component {
 
     render() {
         return (
-            <div><h1>NEW BILLING</h1>
-            <div className="billing-clientPlace"><h4>Client</h4>
+            <div>
+                <div className="addBillingForm"><h1>NEW BILLING</h1>
+            <div className="setClient"><h4>Client</h4>
                 <form name="formClient">
                     <input type="text" value={this.state.nameClient} onChange={this.handleChangeSearchNameClient}/>
                     <button onClick={this.handleSearchClient} className="btn btn-primary">
@@ -199,11 +201,13 @@ class AddBillingForm extends React.Component {
                     </ul>
                 </div>
 
-                <h4>Products</h4>
+                <div className="setProducts">
+                    <h4>Products</h4>
                     <input type="text" value={this.state.nameProduct} onChange={this.handleChangeSearchNameProduct}/>
                      <button onClick={this.handleSearchProductByName} className="btn btn-primary">
                          <span className="material-icons">person_search</span>Search
                      </button>
+                </div>
                 <table className="table table-hover">
                     <thead>
                     <tr>
@@ -234,34 +238,10 @@ class AddBillingForm extends React.Component {
                 </form>
             </div>
 
-            <h4>Footer</h4>
+
+
                 <div className="setFooter">
-                    <div className="container">
-                    <div className="row">
-                        <div className="col-sm-4">
-                        <form>
-                            <div>Date</div>
-                            <input type="date" name="date" id="date" value={this.state.billing.footer_billing.date}
-                                   onChange={this.handleChangeDate}/>
-                        </form>
-                        </div>
-
-                        <div className="col-sm-4">
-                            <input type="text" value={this.state.billing.footer_billing.observation} placeholder="observations"
-                                   onChange={this.handleChangeObservation}/>
-                        </div>
-
-                        <div className="col-sm-4">
-                            <div className="btn-totalPrice">
-                                <button onClick={this.subTotal} className="btn btn-success">MAKE TOTAL PRICE</button>
-                                <p>${this.state.total_price}</p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-
-
-                    <table className="table table-hover">
+                   <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Total Price</th>
@@ -269,18 +249,26 @@ class AddBillingForm extends React.Component {
                                 <th scope="col">Observations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                         <tr>
-                            <td>  ${this.state.billing.footer_billing.total_price}</td>
-                            <td>  {this.state.billing.footer_billing.date}</td>
-                            <td>  {this.state.billing.footer_billing.observation}</td>
+                            <td>
+                                <div className="btn-totalPrice"><button onClick={this.subTotal} className="btn btn-success">MAKE TOTAL PRICE</button>
+                                    <p>${this.state.total_price}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="date" name="date" id="date" value={this.state.billing.footer_billing.date}
+                                       onChange={this.handleChangeDate}/></td>
+                            <td>
+                                <input type="text" value={this.state.billing.footer_billing.observation} placeholder="Observations"
+                                       onChange={this.handleChangeObservation}/></td>
                         </tr>
                         </tbody>
                     </table>
                     </div>
                 <div>
-                        <button className="btn btn-primary" type="submit" onClick={this.handleCreateBilling}>Submit</button>
+                    <button className="btn btn-primary" type="submit" onClick={this.handleCreateBilling}>Submit</button>
+                </div>
                 </div>
                 </div>
         )

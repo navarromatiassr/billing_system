@@ -48,6 +48,7 @@ class ShowBillingDetails extends React.Component{
                             <table className="table table-hover">
                                 <thead>
                                 <tr>
+                                    <th scope="col">ID Client</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Last name</th>
                                     <th scope="col">Country</th>
@@ -69,7 +70,7 @@ class ShowBillingDetails extends React.Component{
                             <table className="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">ID Product</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Price</th>

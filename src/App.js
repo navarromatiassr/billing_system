@@ -38,9 +38,14 @@ class App extends Component {
                 </div>
             <footer className="App-footer">
                 <div className="d-flex justify-content-center">
-                    <div className="p-2 bg-primary flex-fill">Facebook</div>
-                    <div className="p-2 bg-info flex-fill">Gmail</div>
-                    <div className="p-2 bg-primary flex-fill">Wspp</div>
+                    <div className="p-2 bg-primary flex-fill">
+                        <a href="#" className="fa fa-facebook"></a>
+                    </div>
+                    <div className="p-2 bg-info flex-fill">
+                        <a href="https://github.com/navarromatiassr/billing_system/tree/trying" className="fa fa-github"></a>
+                    </div>
+                    <div className="p-2 bg-primary flex-fill">
+                        <a href="#" className="fa fa-instagram"></a></div>
                 </div>
             </footer>
             </div>

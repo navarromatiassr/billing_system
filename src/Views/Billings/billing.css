@@ -1,0 +1,22 @@
+.filterBillings input{
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+.filterBillings button{
+    margin: 10px 10px;
+}
+
+.setFooter{
+    padding: 50px 50px;
+}
+
+.setClients input{
+    padding: 50px 50px;
+}
+
+.setClients button{
+    padding: 10px 10px;
+}

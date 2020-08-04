@@ -14,7 +14,7 @@ class Billing extends React.Component {
             <div className="container">
                 <ShowBillings/>
                 <Link to={this.state.routeAddBilling}>
-                <button type="button" className="btn btn-primary">Add billing</button>
+                    <button type="button" className="btn btn-outline-primary">Add billing</button>
                 </Link>
             </div>
         )
