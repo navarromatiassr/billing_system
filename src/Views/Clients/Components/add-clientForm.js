@@ -127,6 +127,5 @@ class addClientForm extends React.Component {
         )
     }
 }
-ReactDOM.render(<addClientForm />, document.getElementById('root'));
 export default addClientForm;
 
