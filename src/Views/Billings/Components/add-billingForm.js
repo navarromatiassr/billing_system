@@ -11,13 +11,12 @@ const clientApi = new ClientApi();
 const billingApi = new BillingApi();
 
 
-
 class AddBillingForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             nameProduct:'',
-            nameClient:'',
+            dni:'',
             clients:[],
             products: [],
             date:'',
@@ -37,7 +36,7 @@ class AddBillingForm extends React.Component {
             routeBackToBillings : '/billings/'
         }
         this.handleSearchProductByName = this.handleSearchProductByName.bind(this);
-        this.handleChangeSearchNameClient = this.handleChangeSearchNameClient.bind(this);
+        this.handleChangeSearchDNIClient = this.handleChangeSearchDNIClient.bind(this);
         this.handleChangeSearchNameProduct = this.handleChangeSearchNameProduct.bind(this);
         this.handleSearchClient = this.handleSearchClient.bind(this);
         this.selectClient = this.selectClient.bind(this);
@@ -97,8 +96,8 @@ class AddBillingForm extends React.Component {
             });
     }
 
-    handleChangeSearchNameClient(e){
-        this.setState({nameClient: e.target.value})
+    handleChangeSearchDNIClient(e){
+        this.setState({dni: e.target.value})
     }
 
     handleChangeSearchQuantity(e){
@@ -111,7 +110,7 @@ class AddBillingForm extends React.Component {
 
     handleSearchClient(e){
         e.preventDefault()
-        clientApi.getClientByName(this.state.nameClient)
+        clientApi.getClientByDNI(this.state.dni)
             .then(res => {
                 console.log(res);
                 this.setState({ clients:  res });
@@ -163,7 +162,7 @@ class AddBillingForm extends React.Component {
                 <div className="addBillingForm"><h1>NEW BILLING</h1>
             <div className="setClient"><h4>Client</h4>
                 <form name="formClient">
-                    <input type="text" value={this.state.nameClient} onChange={this.handleChangeSearchNameClient}/>
+                    <input type="number" value={this.state.dni} onChange={this.handleChangeSearchDNIClient}/>
                     <button onClick={this.handleSearchClient} className="btn btn-primary">
                         <span className="material-icons">person_search</span>Search
                     </button>

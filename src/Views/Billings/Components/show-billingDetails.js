@@ -33,7 +33,6 @@ class ShowBillingDetails extends React.Component{
 
     }
 
-
     render() {
         return (
             <div>
@@ -60,6 +59,13 @@ class ShowBillingDetails extends React.Component{
                                 <tbody>
                                         <tr>
                                             <td> {this.state.billing.client.id}</td>
+                                            <td> {this.state.billing.client.name}</td>
+                                            <td> {this.state.billing.client.lastName}</td>
+                                            <td> {this.state.billing.client.country}</td>
+                                            <td> {this.state.billing.client.state}</td>
+                                            <td> {this.state.billing.client.ivaCondition}</td>
+                                            <td> {this.state.billing.client.dni}</td>
+                                            <td> {this.state.billing.client.address}</td>
                                         </tr>
                                 </tbody>
                             </table>
@@ -82,8 +88,8 @@ class ShowBillingDetails extends React.Component{
                                         this.state.billing.products.map((product, i) => (
                                                 <tr>
                                                     <td>  {product.product.id} </td>
-                                                    <td>                        </td>
-                                                    <td>                        </td>
+                                                    <td>  {product.product.name}  </td>
+                                                    <td>  {product.product.productCategory}  </td>
                                                     <td>  ${product.product.price}</td>
                                                     <td>  {product.quantity}</td>
                                                 </tr>
@@ -99,17 +105,37 @@ class ShowBillingDetails extends React.Component{
                                 <tr>
                                     <th scope="col">Date</th>
                                     <th scope="col">Observations</th>
+                                    <th scope="col">Total Price</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                         <tr>
                                             <td>  {this.state.billing.date}</td>
                                             <td>  {this.state.billing.footer_billing.observation}</td>
+                                            <td>  {this.state.billing.footer_billing.total_price}</td>
                                         </tr>
 
                                 </tbody>
                             </table>
+                            <li className="list-group-item">
+                                <table className="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Company Name</th>
+                                        <th scope="col">CUIT</th>
+                                        <th scope="col">IVA Condition</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> MF's Company</td>
+                                        <td> 20708592148</td>
+                                        <td> RESPONSABLE_INSCRIPTO</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </li>
                         </li>
                     </ul>
                 </div>

@@ -51,11 +51,12 @@ class addProductForm extends React.Component {
 
                     <div className="selectCondition">Category:
                         <select value={this.state.product.productCategory} name="productCategory" onChange={this.handleChange}>
-                            <option value="HOGAR"> Hogar</option>
-                            <option value="PINTURERIA"> Pintureria</option>
-                            <option value="CONSTRUCCION"> Construccion</option>
-                            <option value="CARPINTERIA"> Carpinteria</option>
-                            <option value="ELECTRICIDAD"> Electricidad</option>
+                            <option value="done"></option>
+                            <option value="HOGAR">Hogar</option>
+                            <option value="PINTURERIA">Pintureria</option>
+                            <option value="CONSTRUCCION">Construccion</option>
+                            <option value="CARPINTERIA">Carpinteria</option>
+                            <option value="ELECTRICIDAD">Electricidad</option>
                         </select>
                     </div>
 
