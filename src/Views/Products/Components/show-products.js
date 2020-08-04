@@ -70,12 +70,12 @@ class ShowProducts extends React.Component{
             <div>
             <div className="filterProducts">
                 <form>
-                    <input type="text" placeholder="Product name" value={this.state.name} onChange={ this.handleChangeSearchName}/>
+                    <input type="text" placeholder="Product Name" value={this.state.name} onChange={ this.handleChangeSearchName}/>
                     <button className="btn btn-primary" onClick={this.handleSearchProductByName}>
                         <span className="material-icons">search</span>Search</button>
                 </form>
                 <form>
-                    <input type="text" placeholder="Insert CODE" value={this.state.products.id} onChange={this.handleChangeSearch}/>
+                    <input type="text" placeholder="Product ID" value={this.state.products.id} onChange={this.handleChangeSearch}/>
                     <button className="btn btn-danger" onClick={this.handleDeleteProduct}>
                         <span className="material-icons">restore_from_trash</span>Delete</button>
                 </form>

@@ -6,6 +6,10 @@
     margin: 10px auto;
 }
 
+.selectForm{
+    padding: 10px 10px;
+}
+
 .addProductForm form input{
     width: 100%;
 }
