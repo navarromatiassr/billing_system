@@ -253,7 +253,7 @@ class AddBillingForm extends React.Component {
                         <tr>
                             <td>
                                 <div className="btn-totalPrice"><button onClick={this.subTotal} className="btn btn-success">MAKE TOTAL PRICE</button>
-                                    <p>${this.state.total_price}</p>
+                                    <p><b>${this.state.total_price}</b></p>
                                 </div>
                             </td>
                             <td>

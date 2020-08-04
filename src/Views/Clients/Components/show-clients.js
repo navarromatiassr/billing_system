@@ -86,6 +86,7 @@ class ShowClients extends React.Component {
                     <th scope="col">Name</th>
                     <th scope="col">Last name</th>
                     <th scope="col">Country</th>
+                    <th scope="col">IVA Condition</th>
                     <th scope="col">State</th>
                     <th scope="col">Dni</th>
                     <th scope="col">Address</th>
@@ -97,8 +98,9 @@ class ShowClients extends React.Component {
                     this.state.clients.map((client, i) => (
                         <tr>
                             <td>  {client.name}</td>
-                            <td>  {client.last_name}</td>
+                            <td>  {client.lastName}</td>
                             <td>  {client.country}</td>
+                            <td>  {client.ivaCondition}</td>
                             <td>  {client.state}</td>
                             <td>  {client.dni}</td>
                             <td>  {client.address}</td>

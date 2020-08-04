@@ -12,13 +12,13 @@ class addClientForm extends React.Component {
         this.state = {
             client: {
                 "name": '',
-                "last_name": '',
+                "lastName": '',
                 "country": '',
                 "state": '',
                 "dni": '',
                 "address": '',
                 "email": '',
-                "condition":''
+                "ivaCondition":''
             }
         }
     }
@@ -74,7 +74,7 @@ class addClientForm extends React.Component {
                         <input
                             type="text"
                             name="last_name"
-                            value={this.state.client.last_name}
+                            value={this.state.client.lastName}
                             onChange={this.handleChange}
                             className="input"
                         />
@@ -98,11 +98,11 @@ class addClientForm extends React.Component {
                         />
                     </div>
 
-                    <div className="selectCondition">Condition:
+                    <div className="selectCondition">IVA Condition:
                         <select>
-                            <option value="value1">Monotributista</option>
-                            <option value="value2">Responsable Inscripto</option>
-                            <option value="value3">Consumidor Final</option>
+                            <option value="MONOTRIBUTISTA">Monotributista</option>
+                            <option value="RESPONSABLE_INSCRIPTO">Responsable Inscripto</option>
+                            <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
                         </select>
                     </div>
 
