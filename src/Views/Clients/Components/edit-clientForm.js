@@ -1,5 +1,6 @@
 import React from 'react';
 import ClientApi from "../../../Service/client-api";
+import { Link } from 'react-router-dom';
 
 const clientApi = new ClientApi();
 
@@ -8,6 +9,7 @@ class EditClientForm extends React.Component{
         super(props);
         this.state={
             client: {
+                "id": '',
                 "name": '',
                 "lastName": '',
                 "country": '',
@@ -16,7 +18,9 @@ class EditClientForm extends React.Component{
                 "address": '',
                 "email": '',
                 "ivaCondition":''
-            }
+            },
+            routeBackToClients: '/clients/',
+            id : this.props.match.params.id
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,8 +32,8 @@ class EditClientForm extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.match.params.id)
-        clientApi.getClientById(this.props.match.params.id)
+        console.log(this.state.id)
+        clientApi.getClientById(this.state.id)
             .then( res => {
                 this.setState({client: res});
             })
@@ -38,14 +42,14 @@ class EditClientForm extends React.Component{
             })
     }
 
-    handleSubmit = e =>{
+    handleSubmit(e){
         e.preventDefault();
         clientApi.editClient(this.state.client)
             .then( () => {
                 console.log("Update success")
             })
             .catch( e => {
-                console.log(e.response);
+                console.log(e);
             })
     }
     render(){
@@ -65,7 +69,7 @@ class EditClientForm extends React.Component{
                     <div>Last Name:
                         <input
                             type="text"
-                            name="last_name"
+                            name="lastName"
                             value={this.state.client.lastName}
                             onChange={this.handleChange}
                             className="input"
@@ -91,7 +95,7 @@ class EditClientForm extends React.Component{
                     </div>
 
                     <div className="selectCondition">IVA Condition:
-                        <select>
+                        <select value={this.state.client.ivaCondition} name="ivaCondition" onChange={this.handleChange}>
                             <option value="MONOTRIBUTISTA">Monotributista</option>
                             <option value="RESPONSABLE_INSCRIPTO">Responsable Inscripto</option>
                             <option value="CONSUMIDOR_FINAL">Consumidor Final</option>
@@ -123,7 +127,9 @@ class EditClientForm extends React.Component{
                             onChange={this.handleChange}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary" onSubmit={this.handleSubmit}>Send</button>
+                    <Link to={this.routeBackToClients}>
+                        <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Send</button>
+                    </Link>
                 </form>
             </div>
 
