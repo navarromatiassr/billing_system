@@ -41,9 +41,9 @@ class ShowProducts extends React.Component{
     }
 
 
-    handleDeleteProduct(e){
+    handleDeleteProduct(e, id){
         e.preventDefault()
-        productApi.deleteProduct(this.state.id)
+        productApi.deleteProduct(id)
             .then( res => {
                 console.log(res)
                 window.location.reload();
@@ -74,11 +74,6 @@ class ShowProducts extends React.Component{
                     <button className="btn btn-primary" onClick={this.handleSearchProductByName}>
                         <span className="material-icons">search</span>Search</button>
                 </form>
-                <form>
-                    <input type="text" placeholder="Product ID" value={this.state.products.id} onChange={this.handleChangeSearch}/>
-                    <button className="btn btn-danger" onClick={this.handleDeleteProduct}>
-                        <span className="material-icons">restore_from_trash</span>Delete</button>
-                </form>
             </div>
             <table className="table table-hover">
                 <thead>
@@ -100,6 +95,8 @@ class ShowProducts extends React.Component{
                             <td>  ${product.price}</td>
                             <td> <Link to={this.state.routeEdit+'/'+product.id}><button className="btn btn-primary">
                                 <span className="material-icons">restore_from_trash</span>Edit</button></Link></td>
+                            <td> <button className="btn btn-danger" onClick={ e => (this.handleDeleteProduct(e, product.id))}>
+                                <span className="material-icons">restore_from_trash</span>Delete</button></td>
                         </tr>
                     ))
                 }

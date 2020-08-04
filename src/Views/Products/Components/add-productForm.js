@@ -12,7 +12,7 @@ class addProductForm extends React.Component {
             notification:[],
             product: {
             "name": '',
-            "category": '',
+            "productCategory": '',
             "price": '',
             },
         }
@@ -28,17 +28,9 @@ class addProductForm extends React.Component {
             .catch( e => {
                 console.log(e);
             });
-        this.restartInput();
+        window.location = 'http://localhost:3000/products/'
     }
 
-    restartInput(){
-        const product= {
-            "name": '',
-            "category": '',
-            "price": '',
-        }
-        this.setState({product})
-    }
 
     handleChange = (e) => {
         let product = this.state.product;
@@ -58,7 +50,7 @@ class addProductForm extends React.Component {
                     </div>
 
                     <div className="selectCondition">Category:
-                        <select value={this.state.product.category} name="category" onChange={this.handleChange}>
+                        <select value={this.state.product.productCategory} name="category" onChange={this.handleChange}>
                             <option value="HOGAR"> Hogar</option>
                             <option value="PINTURERIA"> Pintureria</option>
                             <option value="CONSTRUCCION"> Construccion</option>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE = 'http://localhost:3005/';
+const BASE = 'http://localhost:8080/api/';
 
 class ProductApi{
 
