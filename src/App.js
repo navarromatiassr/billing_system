@@ -36,7 +36,7 @@ class App extends Component {
                         <Route path='/products/add-product' exact component={ addProductForm } />
                         <Route path='/billings' exact component={ Billing } />
                         <Route path='/billings/add-billing' exact component={ AddBillingForm } />
-                        <Route path='/billings/billing-details/:id' exact component={ ShowBillingDetails }/>
+                        <Route path='/billing/select/:id' exact component={ ShowBillingDetails }/>
                     </Switch>
                 </BrowserRouter>
                 </div>

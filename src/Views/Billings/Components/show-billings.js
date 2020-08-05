@@ -81,7 +81,7 @@ class ShowBillings extends React.Component{
                                         <td>  {billing.billFooter.date}</td>
                                         <td>  {billing.billHeader.client.id}</td>
                                         <td>
-                                            <Link to={'/billings/billing-details/'+billing.id}>
+                                            <Link to={'/billing/select/'+billing.billHeader.id}>
                                                 <button className="btn btn-primary">Show Details</button>
                                             </Link>
                                         </td>
