@@ -58,6 +58,7 @@ class ShowBillingDetails extends React.Component{
                                     <th scope="col">Last name</th>
                                     <th scope="col">Country</th>
                                     <th scope="col">State</th>
+                                    <th scope="col">IVA Condition</th>
                                     <th scope="col">Dni</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Type Bill</th>
@@ -120,7 +121,7 @@ class ShowBillingDetails extends React.Component{
                                         <tr>
                                             <td>  {this.state.billing.billFooter.date}</td>
                                             <td>  {this.state.billing.billFooter.observation}</td>
-                                            <td>  {this.state.billing.billFooter.priceTotal}</td>
+                                            <td>  ${this.state.billing.billFooter.priceTotal}</td>
                                         </tr>
 
                                 </tbody>

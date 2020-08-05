@@ -46,6 +46,18 @@ class ShowBillings extends React.Component{
             });
     }
 
+    handleDeleteBilling(id, e){
+        e.preventDefault()
+        billingApi.deleteBilling(id)
+            .then(res => {
+                console.log(res);
+                window.location.reload()
+            })
+            .catch(e => {
+                console.log(e);
+            })
+    }
+
     render(){
         return(
             <div>
@@ -62,9 +74,7 @@ class ShowBillings extends React.Component{
             <div className="card">
                 <div className="card-header">
 
-
                     <h3>BILLING ID N°<b>{billing.billHeader.id}</b></h3>
-
 
                 </div>
                 <ul className="list-group list-group-flush">
@@ -85,6 +95,10 @@ class ShowBillings extends React.Component{
                                                 <button className="btn btn-primary">Show Details</button>
                                             </Link>
                                         </td>
+                                        <td>
+                                            <button className="btn btn-danger" onClick={ e =>(this.handleDeleteBilling(billing.billHeader.id, e))}>
+                                                <span className="material-icons">restore_from_trash</span>Disable</button>
+                                        </td>
                                     </tr>
                             </tbody>
                         </table>
@@ -92,7 +106,6 @@ class ShowBillings extends React.Component{
                 </ul>
             </div>
             </div>
-
                 ))
                 }
             </div>

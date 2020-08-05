@@ -46,7 +46,7 @@ class ProductApi{
     }
 
     async deleteProduct(id){
-        const query = await axios.delete(`${BASE}product/delete/${id}`, {
+        const query = await axios.put(`${BASE}product/delete/${id}`, {
             headers: {
                 "Content-Type": "application/json"
             }

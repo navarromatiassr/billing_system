@@ -32,9 +32,14 @@ class BillingApi {
     }
 
     async deleteBilling(id){
-        const query = await axios.delete(`${BASE}billings-api/${id}`);
-        const data = query.data;
-        return data;
+        const query = await axios.put(`${BASE}billings-api/${id}`, {
+           headers: {
+               "Content-Type": "application/json",
+           }
+       });
+       console.log("Delete success!")
+       const data = query.data;
+       return data;
     }
 }
 export default BillingApi;
