@@ -81,7 +81,7 @@ class AddBillingForm extends React.Component {
         let item = {
             "id" : client
         }
-        this.state.billing.client = item
+        this.state.billing.billHeader.client = item
         this.setState({billing: this.state.billing})
         console.log("Client success added!", this.state.billing)
     }
@@ -156,6 +156,7 @@ class AddBillingForm extends React.Component {
             .catch( e => {
                 console.log(e);
             });
+        window.location = 'http://localhost:3000/billings/'
     }
     render() {
         return (
@@ -242,7 +243,6 @@ class AddBillingForm extends React.Component {
                         <thead>
                             <tr>
                                 <th scope="col">Total Price</th>
-                                <th scope="col">Date</th>
                                 <th scope="col">Observations</th>
                             </tr>
                         </thead>
