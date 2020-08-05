@@ -63,7 +63,7 @@ class ShowBillings extends React.Component{
                 <div className="card-header">
 
 
-                        <h3>ID: N°{billing.id} - Billing</h3>
+                    <h3>BILLING ID N°<b>{billing.billHeader.id}</b></h3>
 
 
                 </div>
@@ -78,8 +78,8 @@ class ShowBillings extends React.Component{
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td>  {billing.footer_billing.date}</td>
-                                        <td>  {billing.client.id}</td>
+                                        <td>  {billing.billFooter.date}</td>
+                                        <td>  {billing.billHeader.client.id}</td>
                                         <td>
                                             <Link to={'/billings/billing-details/'+billing.id}>
                                                 <button className="btn btn-primary">Show Details</button>

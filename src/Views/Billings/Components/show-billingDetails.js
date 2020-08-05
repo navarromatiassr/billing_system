@@ -9,13 +9,19 @@ class ShowBillingDetails extends React.Component{
         super(props);
         this.state = {
             billing:{
-                client:{
-                    id:''
+                billHeader:{
+                    client: {
+                        id:'',
+                    },
+                    typeBill:'',
                 },
-                products:[ ],
-                footer_billing:{
-                }
-            }
+                billBody: [],
+                billFooter: {
+                    observation:'',
+                    date:'',
+                    priceTotal:'',
+                },
+            },
         }
     }
 
@@ -39,7 +45,7 @@ class ShowBillingDetails extends React.Component{
                 <div className="container">
                 <div className="card">
                     <div className="card-header">
-                                <h3>ID: N°{this.state.billing.id} - Billing</h3>
+                                <h3>ID: N°{this.state.billing.billHeader.id} - Billing</h3>
                     </div>
                     <h4>Client</h4>
                     <ul className="list-group list-group-flush">
@@ -54,18 +60,20 @@ class ShowBillingDetails extends React.Component{
                                     <th scope="col">State</th>
                                     <th scope="col">Dni</th>
                                     <th scope="col">Address</th>
+                                    <th scope="col">Type Bill</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td> {this.state.billing.client.id}</td>
-                                            <td> {this.state.billing.client.name}</td>
-                                            <td> {this.state.billing.client.lastName}</td>
-                                            <td> {this.state.billing.client.country}</td>
-                                            <td> {this.state.billing.client.state}</td>
-                                            <td> {this.state.billing.client.ivaCondition}</td>
-                                            <td> {this.state.billing.client.dni}</td>
-                                            <td> {this.state.billing.client.address}</td>
+                                            <td> {this.state.billing.billHeader.client.id}</td>
+                                            <td> {this.state.billing.billHeader.client.name}</td>
+                                            <td> {this.state.billing.billHeader.client.lastName}</td>
+                                            <td> {this.state.billing.billHeader.client.country}</td>
+                                            <td> {this.state.billing.billHeader.client.state}</td>
+                                            <td> {this.state.billing.billHeader.client.ivaCondition}</td>
+                                            <td> {this.state.billing.billHeader.client.dni}</td>
+                                            <td> {this.state.billing.billHeader.client.address}</td>
+                                            <td> {this.state.billing.billHeader.typeBill}</td>
                                         </tr>
                                 </tbody>
                             </table>
@@ -85,7 +93,7 @@ class ShowBillingDetails extends React.Component{
                                 </thead>
                                 <tbody>
                                 {
-                                        this.state.billing.products.map((product, i) => (
+                                        this.state.billing.billBody.map((product, i) => (
                                                 <tr>
                                                     <td>  {product.product.id} </td>
                                                     <td>  {product.product.name}  </td>
@@ -110,9 +118,9 @@ class ShowBillingDetails extends React.Component{
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td>  {this.state.billing.date}</td>
-                                            <td>  {this.state.billing.footer_billing.observation}</td>
-                                            <td>  {this.state.billing.footer_billing.total_price}</td>
+                                            <td>  {this.state.billing.billFooter.date}</td>
+                                            <td>  {this.state.billing.billFooter.observation}</td>
+                                            <td>  {this.state.billing.billFooter.priceTotal}</td>
                                         </tr>
 
                                 </tbody>

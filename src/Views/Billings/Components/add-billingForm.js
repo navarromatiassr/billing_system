@@ -24,11 +24,13 @@ class AddBillingForm extends React.Component {
             observation:'',
             total_price: 0,
             billing: {
-                client: {
-                    id:'',
+                billHeader:{
+                    client: {
+                        id:'',
+                    },
                 },
-                products: [],
-                "footer_billing": {
+                billBody: [],
+                billFooter: {
                     observation:'',
                     date:''
                 },
@@ -48,13 +50,13 @@ class AddBillingForm extends React.Component {
     }
 
     handleChangeDate(e){
-        this.state.billing.footer_billing.date = e.target.value
+        this.state.billing.billFooter.date = e.target.value
         this.setState({billing: this.state.billing })
     }
 
     handleChangeObservation(e){
         let billing = this.state.billing;
-        billing.footer_billing.observation = e.target.value;
+        billing.billFooter.observation = e.target.value;
         this.setState({billing: billing})
     }
 
@@ -68,10 +70,10 @@ class AddBillingForm extends React.Component {
             },
             "quantity": quantity
         };
-        this.state.billing.products.push(item);
+        this.state.billing.billBody.push(item);
         this.setState({ billing : this.state.billing})
         console.log("Product pushed success!")
-        console.log(this.state.billing.products)
+        console.log(this.state.billing.billBody)
     }
 
     selectClient(client, e){
@@ -136,7 +138,7 @@ class AddBillingForm extends React.Component {
         e.preventDefault();
         let subTotal = 0;
         this.state.total_price = 0;
-        this.state.billing.products.forEach(item => {
+        this.state.billing.billBody.forEach(item => {
             subTotal = item.product.price * item.quantity
             this.state.total_price = this.state.total_price + subTotal
         })
@@ -155,7 +157,6 @@ class AddBillingForm extends React.Component {
                 console.log(e);
             });
     }
-
     render() {
         return (
             <div>
@@ -184,7 +185,7 @@ class AddBillingForm extends React.Component {
                                         <tr>
                                             <td>  {client.dni}</td>
                                             <td>  {client.name}</td>
-                                            <td>  {client.last_name}</td>
+                                            <td>  {client.lastName}</td>
 
                                             <td>
                                                 <button onClick={e => this.selectClient(client.id, e)} className="btn btn-primary">
@@ -236,9 +237,6 @@ class AddBillingForm extends React.Component {
                 </table>
                 </form>
             </div>
-
-
-
                 <div className="setFooter">
                    <table className="table table-hover">
                         <thead>
@@ -256,10 +254,7 @@ class AddBillingForm extends React.Component {
                                 </div>
                             </td>
                             <td>
-                                <input type="date" name="date" id="date" value={this.state.billing.footer_billing.date}
-                                       onChange={this.handleChangeDate}/></td>
-                            <td>
-                                <input type="text" value={this.state.billing.footer_billing.observation} placeholder="Observations"
+                                <input type="text" value={this.state.billing.billFooter.observation} placeholder="Observations"
                                        onChange={this.handleChangeObservation}/></td>
                         </tr>
                         </tbody>
