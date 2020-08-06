@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Menu from './Components/Menu/menu';
+import Menu from './Utils/Components/Menu/menu';
 import Client from './Views/Clients/client';
 import Product from './Views/Products/product';
 import Welcome from "./Views/Welcome/welcome-main";
