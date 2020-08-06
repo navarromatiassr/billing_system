@@ -1,6 +1,7 @@
 import  React from 'react';
 import 'react-router-dom'
 import BillingApi from "../../../Service/billing-api";
+import cutString from '../../../Utils/cut-string'
 
 const billingApi = new BillingApi();
 
@@ -119,7 +120,7 @@ class ShowBillingDetails extends React.Component{
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td>  {this.state.billing.billFooter.date}</td>
+                                            <td>  {cutString(this.state.billing.billFooter.date, "T")}</td>
                                             <td>  {this.state.billing.billFooter.observation}</td>
                                             <td>  ${this.state.billing.billFooter.priceTotal}</td>
                                         </tr>
