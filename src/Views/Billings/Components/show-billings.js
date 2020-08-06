@@ -1,7 +1,8 @@
 import React from "react";
 import BillingApi from "../../../Service/billing-api";
-import { Link } from "react-router-dom"
-import '../billing.css'
+import { Link } from "react-router-dom";
+import '../billing.css';
+import cutString from '../../../Utils/cut-string';
 
 const billingApi = new BillingApi();
 
@@ -88,7 +89,7 @@ class ShowBillings extends React.Component{
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td>  {billing.billFooter.date}</td>
+                                        <td>  {cutString(billing.billFooter.date, "T")}</td>
                                         <td>  {billing.billHeader.client.id}</td>
                                         <td>
                                             <Link to={'/billing/select/'+billing.billHeader.id}>
