@@ -32,7 +32,7 @@ class BillingApi {
     }
 
     async deleteBilling(id){
-        const query = await axios.put(`${BASE}billing/${id}`, {
+        const query = await axios.put(`${BASE}billing/delete/${id}`, {
            headers: {
                "Content-Type": "application/json",
            }
